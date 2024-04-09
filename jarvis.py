@@ -1,6 +1,5 @@
 '''
-pip install wikipidea speech_recognition pyttsx3
-
+pip install wikipedia speech_recognition pyttsx3
 '''
 
 import wikipedia
