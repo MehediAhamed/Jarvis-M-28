@@ -79,9 +79,11 @@ def search_britannica(query):
                 end_index = html_text.find('</div>', start_index)
                 # Extract the text of the first paragraph
                 first_paragraph = html_text[start_index:end_index].strip()
-                sentences = re.split(r'(?<=[.:;])\s', first_paragraph)
-                first_three_sentences = ' '.join(sentences[:2])
-                return first_three_sentences
+                # sentences = re.split(r'(?<=[.:;])\s', first_paragraph)
+                # first_three_sentences = ' '.join(sentences[:4])
+                # return first_three_sentences
+
+                return first_paragraph
                 
             else:
                 return None
