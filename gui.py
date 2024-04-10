@@ -3,11 +3,16 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import subprocess
 
+
+count= 0
 proc = None  
 
 def run_program():
+    global count
+    count= count + 1
     global proc
-    proc = subprocess.Popen(['python', 'jarvis.py'])
+    if count==1:
+        proc = subprocess.Popen(['python', 'jarvis.py'])
 
 def on_closing():
     global proc
@@ -39,7 +44,7 @@ background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 animate_gif()
 
-label = tk.Label(app, text="Click the button to run the program", padx=10, pady=10, font=("Helvetica", 18), fg="white", bg="black")
+label = tk.Label(app, text="J.A.R.V.I.S M-28", padx=10, pady=10, font=("Helvetica", 18), fg="white", bg="black")
 label.pack()
 
 button = tk.Button(app, text="Start", command=run_program, font=("Helvetica", 14), bg="#6b0505", fg="white")
@@ -48,3 +53,6 @@ button.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 app.protocol("WM_DELETE_WINDOW", on_closing)
 
 app.mainloop()
+
+
+

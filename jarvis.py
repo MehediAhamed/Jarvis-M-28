@@ -1,5 +1,5 @@
 '''
-pip install wikipedia speech_recognition pyttsx3
+pip install wikipedia SpeechRecognition pyttsx3
 '''
 
 import wikipedia
@@ -183,3 +183,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
