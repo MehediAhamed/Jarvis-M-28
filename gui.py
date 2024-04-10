@@ -3,15 +3,14 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import subprocess
 
-
-count= 0
+count = 0
 proc = None  
 
 def run_program():
     global count
-    count= count + 1
+    count = count + 1
     global proc
-    if count==1:
+    if count == 1:
         proc = subprocess.Popen(['python', 'jarvis.py'])
 
 def on_closing():
@@ -22,13 +21,21 @@ def on_closing():
 
 app = tk.Tk()
 app.title("Jarvis-M 28 Desktop App")
-app.geometry("800x600") 
+
+# Get screen width and height
+screen_width = int(app.winfo_screenwidth() * 0.8)
+screen_height = int(app.winfo_screenheight() * 0.8)
+app.geometry(f"{screen_width}x{screen_height}")
 
 gif_frames = []
 gif = Image.open("./m.gif")
+
+# Resize each frame of the GIF
 try:
     while True:
-        gif_frames.append(ImageTk.PhotoImage(gif.copy()))
+        frame = gif.copy()
+        frame_resized = frame.resize((screen_width, screen_height), Image.LANCZOS)
+        gif_frames.append(ImageTk.PhotoImage(frame_resized))
         gif.seek(len(gif_frames))  # Move to next frame
 except EOFError:
     pass  
@@ -47,12 +54,10 @@ animate_gif()
 label = tk.Label(app, text="J.A.R.V.I.S M-28", padx=10, pady=10, font=("Helvetica", 18), fg="white", bg="black")
 label.pack()
 
-button = tk.Button(app, text="Start", command=run_program, font=("Helvetica", 14), bg="#6b0505", fg="white")
+button = tk.Button(app, text="  Start  ", command=run_program, font=("Helvetica", 15), bg="#6b0505", fg="white")
 button.place(relx=0.5, rely=0.5, anchor=tk.CENTER) 
 
 app.protocol("WM_DELETE_WINDOW", on_closing)
 
 app.mainloop()
-
-
 

@@ -1,5 +1,5 @@
 '''
-pip install wikipedia SpeechRecognition pyttsx3
+pip install python3-tk pillow wikipedia SpeechRecognition pyttsx3
 '''
 
 import wikipedia
