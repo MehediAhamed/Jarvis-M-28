@@ -23,8 +23,8 @@ app = tk.Tk()
 app.title("Jarvis-M 28 Desktop App")
 
 # Get screen width and height
-screen_width = int(app.winfo_screenwidth() * 0.8)
-screen_height = int(app.winfo_screenheight() * 0.8)
+screen_width = app.winfo_screenwidth()
+screen_height = app.winfo_screenheight()
 app.geometry(f"{screen_width}x{screen_height}")
 
 gif_frames = []
