@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 
 import tkinter as tk
@@ -13,7 +13,7 @@ def run_program():
     count = count + 1
     global proc
     if count == 1:
-        proc = subprocess.Popen(['python', 'jarvis.py'])
+        proc = subprocess.Popen(['python3', 'jarvis.py'])
 
 def on_closing():
     global proc
