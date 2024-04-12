@@ -1,6 +1,7 @@
 '''
 pip install python3-tk pillow wikipedia SpeechRecognition pyttsx3
 '''
+#!/usr/bin/env python3
 
 import wikipedia
 import speech_recognition as sr
