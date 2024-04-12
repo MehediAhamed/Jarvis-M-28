@@ -1,4 +1,5 @@
 
+
 import tkinter as tk
 from PIL import Image, ImageTk
 import subprocess
@@ -23,20 +24,22 @@ app = tk.Tk()
 app.title("Jarvis-M 28 Desktop App")
 
 # Get screen width and height
-screen_width = app.winfo_screenwidth()
-screen_height = app.winfo_screenheight()
+# screen_width = app.winfo_screenwidth()
+# screen_height = app.winfo_screenheight()
+
+screen_width = 1280
+screen_height = 750
 app.geometry(f"{screen_width}x{screen_height}")
 
 gif_frames = []
 gif = Image.open("./m.gif")
 
-# Resize each frame of the GIF
 try:
     while True:
         frame = gif.copy()
         frame_resized = frame.resize((screen_width, screen_height), Image.LANCZOS)
         gif_frames.append(ImageTk.PhotoImage(frame_resized))
-        gif.seek(len(gif_frames))  # Move to next frame
+        gif.seek(len(gif_frames))  
 except EOFError:
     pass  
 
@@ -60,4 +63,5 @@ button.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 app.protocol("WM_DELETE_WINDOW", on_closing)
 
 app.mainloop()
+
 
